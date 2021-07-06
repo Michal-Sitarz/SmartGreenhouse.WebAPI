@@ -8,7 +8,8 @@ namespace SmartGreenhouse.WebAPI.Models
 {
     public class SensorNode
     {
-        public int Id { get; set; }
+        [Key]
+        public string Id { get; set; }
 
         [Required]
         public string DeviceType { get; set; }

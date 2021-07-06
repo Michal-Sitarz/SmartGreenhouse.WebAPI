@@ -21,7 +21,7 @@ namespace SmartGreenhouse.WebAPI.Services
             return _dbContext.SensorNodes.ToList();
         }
 
-        public SensorNode GetSensorNodeById(int id)
+        public SensorNode GetSensorNodeById(string id)
         {
             return _dbContext.SensorNodes.FirstOrDefault(x => x.Id == id);
         }

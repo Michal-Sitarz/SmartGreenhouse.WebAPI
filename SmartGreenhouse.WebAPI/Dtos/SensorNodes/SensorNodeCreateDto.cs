@@ -6,6 +6,9 @@ namespace SmartGreenhouse.WebAPI.Dtos.SensorNodes
     public class SensorNodeCreateDto
     {
         [Required]
+        public string Id { get; set; }
+
+        [Required]
         public string DeviceType { get; set; }
 
         [Required]

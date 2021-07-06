@@ -7,7 +7,7 @@ namespace SmartGreenhouse.WebAPI.Services.Contracts
     {
         IEnumerable<SensorNode> GetAllSensorNodes();
 
-        SensorNode GetSensorNodeById(int id);
+        SensorNode GetSensorNodeById(string id);
 
         void CreateSensorNode(SensorNode SensorNode);
 

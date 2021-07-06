@@ -19,7 +19,7 @@ namespace SmartGreenhouse.WebAPI.Models
 
         public DateTime TimeStamp { get; set; }
 
-        public int SensorNodeId { get; set; }
+        public string SensorNodeId { get; set; }
 
         public SensorNode SensorNode { get; set; }
     }
