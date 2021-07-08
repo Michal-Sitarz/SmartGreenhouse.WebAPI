@@ -12,6 +12,6 @@ namespace SmartGreenhouse.WebAPI.Data
 
         public DbSet<Plant> Plants { get; set; }
         public DbSet<SensorNode> SensorNodes { get; set; }
-        public DbSet<ConditionsReading> Readings { get; set; }
+        public DbSet<ConditionsReading> ConditionsReadings { get; set; }
     }
 }

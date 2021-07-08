@@ -32,7 +32,7 @@ namespace SmartGreenhouse.WebAPI.Controllers
 
         // GET: api/SensorNodes/{id}
         [HttpGet("{id}", Name = "GetSensorNodeById")]
-        public ActionResult<SensorNodeReadDto> GetSensorNodeById(int id)
+        public ActionResult<SensorNodeReadDto> GetSensorNodeById(string id)
         {
             var SensorNode = _dataService.GetSensorNodeById(id);
             if (SensorNode == null)
@@ -60,7 +60,7 @@ namespace SmartGreenhouse.WebAPI.Controllers
 
         // PUT: api/SensorNodes/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateSensorNode(int id, SensorNodeUpdateDto SensorNodeUpdateDto)
+        public ActionResult UpdateSensorNode(string id, SensorNodeUpdateDto SensorNodeUpdateDto)
         {
             var SensorNode = _dataService.GetSensorNodeById(id);
             if(SensorNode == null)
@@ -76,7 +76,7 @@ namespace SmartGreenhouse.WebAPI.Controllers
 
         // DELETE: api/SensorNodes/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteSensorNode(int id)
+        public ActionResult DeleteSensorNode(string id)
         {
             var SensorNode = _dataService.GetSensorNodeById(id);
             if (SensorNode == null)

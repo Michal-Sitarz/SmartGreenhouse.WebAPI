@@ -16,5 +16,6 @@ namespace SmartGreenhouse.WebAPI.Dtos.SensorNodes
 
         [Required]
         public string Location { get; set; }
+
     }
 }

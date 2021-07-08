@@ -24,8 +24,18 @@ namespace SmartGreenhouse.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
+            // Environment Variables used by container
+            var server = Configuration["DBServer"] ?? "localhost";
+            var port = Configuration["DBPort"] ?? "8881";
+            var user = Configuration["DBUser"] ?? "sa";
+            var password = Configuration["DBPassword"] ?? "Pa55w@rdIsN0tSeCReT";
+            var database = Configuration["Database"] ?? "SmartGreenhouseDB";
+
+            services.AddDbContext<AppDbContext>(options => 
+                options.UseSqlServer($"Server={server},{port};Initial Catalog={database};User ID={user};Password={password}"));
+
+            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
+            //    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -34,7 +44,12 @@ namespace SmartGreenhouse.WebAPI
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            // Data services
+            // move to: DataServicesCollectionExtension.cs <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< !!!!!!!!!!!!
             services.AddScoped<IPlantsDataService, PlantsDataService>();
+            services.AddScoped<ISensorNodesDataService, SensorNodesDataService>();
+            services.AddScoped<IConditionsReadingsDataService, ConditionsReadingsDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +72,9 @@ namespace SmartGreenhouse.WebAPI
             {
                 endpoints.MapControllers();
             });
+
+            // Populate database (migrations, data seeding)
+            AppDbPrep.Populate(app);
         }
     }
 }
