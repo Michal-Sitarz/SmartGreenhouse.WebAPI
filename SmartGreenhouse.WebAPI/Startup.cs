@@ -24,9 +24,9 @@ namespace SmartGreenhouse.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Environment Variables used by container
-            var server = Configuration["DBServer"] ?? "localhost";
-            var port = Configuration["DBPort"] ?? "8881";
+            // Environment Variables used by container or command line
+            var server = Configuration["DBServer"] ?? "database"; //localhost
+            var port = Configuration["DBPort"] ?? "1433"; //8881
             var user = Configuration["DBUser"] ?? "sa";
             var password = Configuration["DBPassword"] ?? "Pa55w@rdIsN0tSeCReT";
             var database = Configuration["Database"] ?? "SmartGreenhouseDB";
@@ -46,7 +46,7 @@ namespace SmartGreenhouse.WebAPI
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // Data services
-            // move to: DataServicesCollectionExtension.cs <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< !!!!!!!!!!!!
+            // move to: DataServicesCollectionExtension.cs in the future <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< !!!!!!!!!!!!
             services.AddScoped<IPlantsDataService, PlantsDataService>();
             services.AddScoped<ISensorNodesDataService, SensorNodesDataService>();
             services.AddScoped<IConditionsReadingsDataService, ConditionsReadingsDataService>();

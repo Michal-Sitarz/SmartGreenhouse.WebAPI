@@ -1,14 +1,8 @@
 ﻿version: '3'
 services:
-  sqldatabase:
-    image: michalsitarz/smartgreenhouse-database:sql
-    ports:
-      - "8881:1433"
+  database:
+    image: michalsitarz/smartgreenhouse-database
   webapi:
     build: .
-    environment:
-      DBServer: "sqldatabase"
     ports:
       - "8882:80"
-    depends_on:
-      - sqldatabase

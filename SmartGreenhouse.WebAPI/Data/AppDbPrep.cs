@@ -36,22 +36,22 @@ namespace SmartGreenhouse.WebAPI.Data
                     }
                 );
 
-                dbContext.ConditionsReadings.AddRange(
-                    new ConditionsReading()
-                    {
-                        AirHumidity = 60,
-                        AirTemperature = 19,
-                        TimeStamp = DateTime.Now,
-                        SensorNodeId = "arduino1"
-                    },
-                    new ConditionsReading()
-                    {
-                        AirHumidity = 65,
-                        AirTemperature = 25,
-                        TimeStamp = DateTime.Now,
-                        SensorNodeId = "arduino1"
-                    }
-                );
+                //dbContext.ConditionsReadings.AddRange(
+                //    new ConditionsReading()
+                //    {
+                //        AirHumidity = 60,
+                //        AirTemperature = 19,
+                //        TimeStamp = DateTime.Now,
+                //        SensorNodeId = "arduino1"
+                //    },
+                //    new ConditionsReading()
+                //    {
+                //        AirHumidity = 65,
+                //        AirTemperature = 25,
+                //        TimeStamp = DateTime.Now,
+                //        SensorNodeId = "arduino1"
+                //    }
+                //);
 
                 dbContext.SaveChanges();
             }
