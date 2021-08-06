@@ -5,11 +5,11 @@ namespace SmartGreenhouse.WebAPI.Dtos.ConditionsReadings
 {
     public class ConditionsReadingCreateDto
     {
-        public int AirTemperature { get; set; }
+        public double AirTemperature { get; set; }
 
-        public int AirHumidity { get; set; }
+        public double AirHumidity { get; set; }
 
-        public int SoilMoisture { get; set; }
+        public double SoilMoisture { get; set; }
 
         public int LightIntensity { get; set; }
 
